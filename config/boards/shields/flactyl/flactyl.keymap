@@ -1,0 +1,94 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#define L_DEFAULT 0
+#define L_ARROWS 1
+
+
+/* sticky keys timeout */
+&sk {
+    release-after-ms = <3000>;
+};
+/ {
+    behaviors {
+        yan_encoder: yan_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "YAN_ENCODER";
+            #sensor-binding-cells = <0>;
+            bindings = <&kp K_VOLUME_DOWN>, <&kp K_VOLUME_UP>;
+        };
+    };
+    keymap {
+        compatible = "zmk,keymap";
+        
+        /* default 0 */
+        default_layer {
+            bindings = <
+
+/*  Left half */
+&kp Q	&kp	W	&kp F	&kp P   &none
+&kp A &kp R &kp S &kp T &kp G
+&kp Z	&kp X	&kp C &kp D &kp B
+
+/* Left thumb */
+&kp N1	&mo L_ARROWS	&kp N2
+&kp N3	&kp N4	&kp N5
+
+/* Right half */
+&mo L_CONFIG	&td_13	&td_14	&td_15	&td_16
+&td_17	&td_18	&td_19	&td_20	&td_21
+&td_22	&td_23	&td_24	&td_25	&none
+
+/* Right thumb */
+&kp N6	&kp N7	&kp N8
+&kp N9	&kp N0	&kp X
+            >;
+ sensor-bindings = <&yan_encoder>;            
+        };
+    
+        /* arrows 1 */
+        arrows_layer {
+            bindings = <
+&none	&kp SPACE	&kp DELETE	&none	&kp K_VOLUME_UP
+&kp ESCAPE	&kp TAB	&kp BACKSPACE	&td_111	&kp K_VOLUME_DOWN
+&sk LEFT_ALT	&sk LEFT_CONTROL	&sk LEFT_SHIFT	&sk LEFT_COMMAND	&none
+&trans	&trans	&trans
+&trans	&trans	&trans
+&none	&kp HOME	&kp UP_ARROW	&kp PAGE_UP	&none
+&none	&kp LEFT_ARROW	&kp DOWN_ARROW	&kp RIGHT_ARROW	&none
+&none	&kp END	&none	&kp PAGE_DOWN	&none
+&trans	&trans	&trans
+&trans	&trans	&trans
+            >;            
+        };
+
+        /* config 2 */
+        config_layer {
+            bindings = <
+
+&bootloader	&sys_reset	&bt BT_CLR	&none	&none
+&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3	&bt BT_SEL 4
+&bt BT_PRV	&bt BT_NXT	&out OUT_BLE	&none	&out OUT_USB
+
+&none	&none	&none
+&none	&none	&none
+
+&none	&none	&none	&sys_reset	&bootloader
+&none	&none	&none	&none	&none
+&none	&none	&none	&none	&none
+
+&none	&none	&none
+&none	&none	&none
+            >;            
+        };
+    
+    };
+};

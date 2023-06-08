@@ -1,0 +1,13 @@
+file_format: "1"
+id: flactyl
+name: Flactyl
+type: shield
+url: https://github.com/yangit/flactyl/
+requires: [pro_micro]
+exposes: [i2c_oled]
+features:
+  - encoder
+  - keys
+siblings:
+  - flactyl_left
+  - flactyl_right

@@ -1,2 +1,3 @@
 # zmk-config-flactyl
-zmk-config for flactyl keyboard
+
+Basic zmk-config for flactyl keyboard
