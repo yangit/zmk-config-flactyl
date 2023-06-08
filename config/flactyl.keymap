@@ -59,7 +59,7 @@
         arrows_layer {
             bindings = <
 &none	&kp SPACE	&kp DELETE	&none	&kp K_VOLUME_UP
-&kp ESCAPE	&kp TAB	&kp BACKSPACE	&td_111	&kp K_VOLUME_DOWN
+&kp ESCAPE	&kp TAB	&kp BACKSPACE	&kp RETURN	&kp K_VOLUME_DOWN
 &sk LEFT_ALT	&sk LEFT_CONTROL	&sk LEFT_SHIFT	&sk LEFT_COMMAND	&none
 &trans	&trans	&trans
 &trans	&trans	&trans
