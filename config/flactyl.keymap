@@ -11,6 +11,7 @@
 
 #define L_DEFAULT 0
 #define L_ARROWS 1
+#define L_CONFIG 2
 
 
 /* sticky keys timeout */
@@ -34,7 +35,7 @@
             bindings = <
 
 /*  Left half */
-&kp Q	&kp	W	&kp F	&kp P   &none
+&kp Q	&kp	W	&kp F	&kp P   &mo L_CONFIG
 &kp A &kp R &kp S &kp T &kp G
 &kp Z	&kp X	&kp C &kp D &kp B
 
@@ -43,9 +44,9 @@
 &kp N3	&kp N4	&kp N5
 
 /* Right half */
-&mo L_CONFIG	&td_13	&td_14	&td_15	&td_16
-&td_17	&td_18	&td_19	&td_20	&td_21
-&td_22	&td_23	&td_24	&td_25	&none
+&mo L_CONFIG &kp L	&kp	U	&kp Y	&kp X
+&kp M &kp N &kp E &kp I &kp O
+&kp J &kp H	&kp V &kp K &kp X
 
 /* Right thumb */
 &kp N6	&kp N7	&kp N8
